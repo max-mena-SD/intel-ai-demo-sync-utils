@@ -1,0 +1,8 @@
+============================= test session starts =============================
+platform win32 -- Python 3.12.4, pytest-8.3.3, pluggy-1.5.0
+rootdir: C:\Users\mmenaarx\Project_AI_CoE\Extract
+collected 1 item
+
+tests\test_download_readme.py .                                          [100%]
+
+============================== 1 passed in 0.86s ==============================

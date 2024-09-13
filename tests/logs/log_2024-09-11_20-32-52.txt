@@ -1,0 +1,196 @@
+2024-09-11 20:32:59 : Classifier has been initialized
+2024-09-11 20:32:59 : Data read from ./metadata/Openvino_data.json
+2024-09-11 20:32:59 : 3D-pose-estimation-webcam size: 3138 characters
+2024-09-11 20:34:49 : Notebook: 3D-pose-estimation-webcam has been processed
+2024-09-11 20:34:49 : 3D-segmentation-point-clouds size: 1854 characters
+2024-09-11 20:36:04 : Notebook: 3D-segmentation-point-clouds has been processed
+2024-09-11 20:36:05 : action-recognition-webcam size: 4528 characters
+2024-09-11 20:36:05 : Notebook: action-recognition-webcam has been processed
+2024-09-11 20:36:05 : amused-lightweight-text-to-image size: 2054 characters
+2024-09-11 20:37:12 : Notebook: amused-lightweight-text-to-image has been processed
+2024-09-11 20:37:12 : animate-anyone size: 2550 characters
+2024-09-11 20:38:23 : Notebook: animate-anyone has been processed
+2024-09-11 20:38:23 : async-api size: 2152 characters
+2024-09-11 20:39:37 : Notebook: async-api has been processed
+2024-09-11 20:39:37 : auto-device size: 1710 characters
+2024-09-11 20:41:02 : Notebook: auto-device has been processed
+2024-09-11 20:41:02 : bark-text-to-audio Error: 'charmap' codec can't decode byte 0x90 in position 266: character maps to <undefined>
+2024-09-11 20:41:02 : big-transfer-quantization size: 1327 characters
+2024-09-11 20:42:27 : Notebook: big-transfer-quantization has been processed
+2024-09-11 20:42:27 : blip-visual-language-processing size: 2098 characters
+2024-09-11 20:44:14 : Notebook: blip-visual-language-processing has been processed
+2024-09-11 20:44:14 : clip-language-saliency-map size: 1539 characters
+2024-09-11 20:45:22 : Notebook: clip-language-saliency-map has been processed
+2024-09-11 20:45:22 : clip-zero-shot-image-classification Error: 'charmap' codec can't decode byte 0x9d in position 925: character maps to <undefined>
+2024-09-11 20:45:22 : controlnet-stable-diffusion size: 3409 characters
+2024-09-11 20:47:08 : Notebook: controlnet-stable-diffusion has been processed
+2024-09-11 20:47:08 : convert-to-openvino size: 1752 characters
+2024-09-11 20:48:17 : Notebook: convert-to-openvino has been processed
+2024-09-11 20:48:17 : cross-lingual-books-alignment size: 2584 characters
+2024-09-11 20:49:32 : Notebook: cross-lingual-books-alignment has been processed
+2024-09-11 20:49:32 : ct-segmentation-quantize size: 2243 characters
+2024-09-11 20:50:47 : Notebook: ct-segmentation-quantize has been processed
+2024-09-11 20:50:47 : ddcolor-image-colorization size: 2366 characters
+2024-09-11 20:52:06 : Notebook: ddcolor-image-colorization has been processed
+2024-09-11 20:52:06 : depth-anything size: 2832 characters
+2024-09-11 20:53:32 : Notebook: depth-anything has been processed
+2024-09-11 20:53:32 : detectron2-to-openvino size: 2076 characters
+2024-09-11 20:54:46 : Notebook: detectron2-to-openvino has been processed
+2024-09-11 20:54:46 : distil-whisper-asr size: 2138 characters
+2024-09-11 20:56:13 : Notebook: distil-whisper-asr has been processed
+2024-09-11 20:56:13 : distilbert-sequence-classification size: 2438 characters
+2024-09-11 20:57:22 : Notebook: distilbert-sequence-classification has been processed
+2024-09-11 20:57:22 : dolly-2-instruction-following size: 3138 characters
+2024-09-11 20:58:44 : Notebook: dolly-2-instruction-following has been processed
+2024-09-11 20:58:44 : dynamicrafter-animating-images size: 2888 characters
+2024-09-11 21:00:00 : Notebook: dynamicrafter-animating-images has been processed
+2024-09-11 21:00:00 : efficient-sam size: 2303 characters
+2024-09-11 21:01:23 : Notebook: efficient-sam has been processed
+2024-09-11 21:01:23 : encodec-audio-compression size: 2105 characters
+2024-09-11 21:02:34 : Notebook: encodec-audio-compression has been processed
+2024-09-11 21:02:34 : explainable-ai-1-basic size: 1914 characters
+2024-09-11 21:04:01 : Notebook: explainable-ai-1-basic has been processed
+2024-09-11 21:04:01 : explainable-ai-2-deep-dive size: 3850 characters
+2024-09-11 21:04:01 : Notebook: explainable-ai-2-deep-dive has been processed
+2024-09-11 21:04:01 : explainable-ai-3-map-interpretation size: 2889 characters
+2024-09-11 21:05:19 : Notebook: explainable-ai-3-map-interpretation has been processed
+2024-09-11 21:05:19 : fast-segment-anything size: 2037 characters
+2024-09-11 21:07:26 : Notebook: fast-segment-anything has been processed
+2024-09-11 21:07:26 : film-slowmo Error: 'charmap' codec can't decode byte 0x9d in position 566: character maps to <undefined>
+2024-09-11 21:07:26 : florence2 size: 2139 characters
+2024-09-11 21:08:32 : Notebook: florence2 has been processed
+2024-09-11 21:08:32 : flux.1-image-generation size: 2156 characters
+2024-09-11 21:09:54 : Notebook: flux.1-image-generation has been processed
+2024-09-11 21:09:54 : freevc-voice-conversion size: 1589 characters
+2024-09-11 21:11:02 : Notebook: freevc-voice-conversion has been processed
+2024-09-11 21:11:02 : gpu-device size: 1369 characters
+2024-09-11 21:12:07 : Notebook: gpu-device has been processed
+2024-09-11 21:12:07 : grammar-correction size: 2851 characters
+2024-09-11 21:13:16 : Notebook: grammar-correction has been processed
+2024-09-11 21:13:16 : grounded-segment-anything size: 2142 characters
+2024-09-11 21:14:21 : Notebook: grounded-segment-anything has been processed
+2024-09-11 21:14:21 : handwritten-ocr Error: 'charmap' codec can't decode byte 0x8d in position 736: character maps to <undefined>
+2024-09-11 21:14:21 : hello-detection size: 2333 characters
+2024-09-11 21:15:35 : Notebook: hello-detection has been processed
+2024-09-11 21:15:35 : hello-npu size: 1149 characters
+2024-09-11 21:16:36 : Notebook: hello-npu has been processed
+2024-09-11 21:16:36 : hello-segmentation size: 2415 characters
+2024-09-11 21:17:37 : Notebook: hello-segmentation has been processed
+2024-09-11 21:17:37 : hello-world size: 1432 characters
+2024-09-11 21:18:34 : Notebook: hello-world has been processed
+2024-09-11 21:18:34 : hugging-face-hub size: 1757 characters
+2024-09-11 21:19:51 : Notebook: hugging-face-hub has been processed
+2024-09-11 21:19:51 : hunyuan-dit-image-generation size: 2016 characters
+2024-09-11 21:20:54 : Notebook: hunyuan-dit-image-generation has been processed
+2024-09-11 21:20:54 : image-bind size: 2440 characters
+2024-09-11 21:21:52 : Notebook: image-bind has been processed
+2024-09-11 21:21:52 : image-classification-quantization size: 2008 characters
+2024-09-11 21:23:02 : Notebook: image-classification-quantization has been processed
+2024-09-11 21:23:02 : instant-id size: 3982 characters
+2024-09-11 21:24:05 : Notebook: instant-id has been processed
+2024-09-11 21:24:05 : instruct-pix2pix-image-editing size: 2374 characters
+2024-09-11 21:24:58 : Notebook: instruct-pix2pix-image-editing has been processed
+2024-09-11 21:24:58 : internvl2 size: 2149 characters
+2024-09-11 21:26:00 : Notebook: internvl2 has been processed
+2024-09-11 21:26:00 : jina-clip size: 1902 characters
+2024-09-11 21:27:17 : Notebook: jina-clip has been processed
+2024-09-11 21:27:17 : knowledge-graphs-conve size: 2891 characters
+2024-09-11 21:28:36 : Notebook: knowledge-graphs-conve has been processed
+2024-09-11 21:28:36 : kosmos2-multimodal-large-language-model size: 2547 characters
+2024-09-11 21:29:52 : Notebook: kosmos2-multimodal-large-language-model has been processed
+2024-09-11 21:29:52 : language-quantize-bert size: 1707 characters
+2024-09-11 21:31:28 : Notebook: language-quantize-bert has been processed
+2024-09-11 21:31:28 : latent-consistency-models-image-generation size: 7227 characters
+2024-09-11 21:31:28 : Notebook: latent-consistency-models-image-generation has been processed
+2024-09-11 21:31:28 : llava-multimodal-chatbot size: 3196 characters
+2024-09-11 21:33:12 : Notebook: llava-multimodal-chatbot has been processed
+2024-09-11 21:33:12 : llava-next-multimodal-chatbot size: 2417 characters
+2024-09-11 21:34:26 : Notebook: llava-next-multimodal-chatbot has been processed
+2024-09-11 21:34:26 : llm-agent-functioncall Error: 'charmap' codec can't decode byte 0x9d in position 277: character maps to <undefined>
+2024-09-11 21:34:26 : llm-agent-react Error: 'charmap' codec can't decode byte 0x9d in position 266: character maps to <undefined>
+2024-09-11 21:34:26 : llm-chatbot size: 21115 characters
+2024-09-11 21:34:26 : Notebook: llm-chatbot has been processed
+2024-09-11 21:34:26 : llm-question-answering Error: 'charmap' codec can't decode byte 0x9d in position 93: character maps to <undefined>
+2024-09-11 21:34:26 : llm-rag-langchain size: 2070 characters
+2024-09-11 21:35:32 : Notebook: llm-rag-langchain has been processed
+2024-09-11 21:35:32 : llm-rag-llamaindex size: 1962 characters
+2024-09-11 21:36:46 : Notebook: llm-rag-llamaindex has been processed
+2024-09-11 21:36:46 : magika-content-type-recognition size: 3599 characters
+2024-09-11 21:37:51 : Notebook: magika-content-type-recognition has been processed
+2024-09-11 21:37:51 : meter-reader size: 1613 characters
+2024-09-11 21:38:54 : Notebook: meter-reader has been processed
+2024-09-11 21:38:54 : minicpm-v-multimodal-chatbot size: 1935 characters
+2024-09-11 21:40:01 : Notebook: minicpm-v-multimodal-chatbot has been processed
+2024-09-11 21:40:01 : mms-massively-multilingual-speech size: 2100 characters
+2024-09-11 21:41:03 : Notebook: mms-massively-multilingual-speech has been processed
+2024-09-11 21:41:03 : mobileclip-video-search size: 2571 characters
+2024-09-11 21:42:13 : Notebook: mobileclip-video-search has been processed
+2024-09-11 21:42:13 : mobilevlm-language-assistant size: 1923 characters
+2024-09-11 21:43:21 : Notebook: mobilevlm-language-assistant has been processed
+2024-09-11 21:43:21 : model-server size: 1313 characters
+2024-09-11 21:44:21 : Notebook: model-server has been processed
+2024-09-11 21:44:21 : music-generation size: 2076 characters
+2024-09-11 21:45:30 : Notebook: music-generation has been processed
+2024-09-11 21:45:30 : named-entity-recognition size: 2503 characters
+2024-09-11 21:46:37 : Notebook: named-entity-recognition has been processed
+2024-09-11 21:46:37 : nano-llava-multimodal-chatbot size: 1614 characters
+2024-09-11 21:47:49 : Notebook: nano-llava-multimodal-chatbot has been processed
+2024-09-11 21:47:49 : nuextract-structure-extraction size: 1496 characters
+2024-09-11 21:49:08 : Notebook: nuextract-structure-extraction has been processed
+2024-09-11 21:49:08 : object-detection-webcam size: 2599 characters
+2024-09-11 21:50:13 : Notebook: object-detection-webcam has been processed
+2024-09-11 21:50:13 : oneformer-segmentation size: 1411 characters
+2024-09-11 21:51:25 : Notebook: oneformer-segmentation has been processed
+2024-09-11 21:51:25 : openvino-api size: 1703 characters
+2024-09-11 21:52:33 : Notebook: openvino-api has been processed
+2024-09-11 21:52:33 : openvino-tokenizers size: 1808 characters
+2024-09-11 21:53:54 : Notebook: openvino-tokenizers has been processed
+2024-09-11 21:53:54 : openvoice size: 2485 characters
+2024-09-11 21:54:54 : Notebook: openvoice has been processed
+2024-09-11 21:54:54 : optical-character-recognition size: 1772 characters
+2024-09-11 21:56:02 : Notebook: optical-character-recognition has been processed
+2024-09-11 21:56:02 : optimize-preprocessing size: 2020 characters
+2024-09-11 21:57:19 : Notebook: optimize-preprocessing has been processed
+2024-09-11 21:57:19 : paddle-ocr-webcam size: 3046 characters
+2024-09-11 21:58:29 : Notebook: paddle-ocr-webcam has been processed
+2024-09-11 21:58:29 : paddle-to-openvino size: 1851 characters
+2024-09-11 21:59:41 : Notebook: paddle-to-openvino has been processed
+2024-09-11 21:59:41 : paint-by-example size: 2849 characters
+2024-09-11 22:00:46 : Notebook: paint-by-example has been processed
+2024-09-11 22:00:46 : parler-tts-text-to-speech size: 2479 characters
+2024-09-11 22:01:56 : Notebook: parler-tts-text-to-speech has been processed
+2024-09-11 22:01:56 : person-counting-webcam size: 2217 characters
+2024-09-11 22:02:59 : Notebook: person-counting-webcam has been processed
+2024-09-11 22:02:59 : person-tracking-webcam size: 2488 characters
+2024-09-11 22:04:03 : Notebook: person-tracking-webcam has been processed
+2024-09-11 22:04:03 : phi-3-vision size: 1940 characters
+2024-09-11 22:05:11 : Notebook: phi-3-vision has been processed
+2024-09-11 22:05:11 : photo-maker size: 2092 characters
+2024-09-11 22:06:15 : Notebook: photo-maker has been processed
+2024-09-11 22:06:15 : pix2struct-docvqa size: 3703 characters
+2024-09-11 22:07:19 : Notebook: pix2struct-docvqa has been processed
+2024-09-11 22:07:19 : pixart size: 2210 characters
+2024-09-11 22:08:25 : Notebook: pixart has been processed
+2024-09-11 22:08:25 : pose-estimation-webcam size: 1669 characters
+2024-09-11 22:09:23 : Notebook: pose-estimation-webcam has been processed
+2024-09-11 22:09:23 : pytorch-post-training-quantization-nncf size: 1455 characters
+2024-09-11 22:10:22 : Notebook: pytorch-post-training-quantization-nncf has been processed
+2024-09-11 22:10:22 : pytorch-quantization-aware-training size: 1524 characters
+2024-09-11 22:11:29 : Notebook: pytorch-quantization-aware-training has been processed
+2024-09-11 22:11:29 : pytorch-quantization-sparsity-aware-training size: 1496 characters
+2024-09-11 22:12:32 : Notebook: pytorch-quantization-sparsity-aware-training has been processed
+2024-09-11 22:12:32 : pytorch-to-openvino size: 3207 characters
+2024-09-11 22:12:32 : Notebook: pytorch-to-openvino has been processed
+2024-09-11 22:12:32 : qrcode-monster size: 2355 characters
+2024-09-11 22:13:32 : Notebook: qrcode-monster has been processed
+2024-09-11 22:13:32 : quantizing-model-with-accuracy-control size: 2649 characters
+2024-09-11 22:14:37 : Notebook: quantizing-model-with-accuracy-control has been processed
+2024-09-11 22:14:37 : qwen2-vl size: 3171 characters
+2024-09-11 22:15:47 : Notebook: qwen2-vl has been processed
+2024-09-11 22:15:47 : riffusion-text-to-music size: 2750 characters
+2024-09-11 22:16:49 : Notebook: riffusion-text-to-music has been processed
+2024-09-11 22:16:49 : rmbg-background-removal size: 2973 characters
+2024-09-11 22:18:14 : Notebook: rmbg-background-removal has been processed
+2024-09-11 22:18:14 : s3d-mil-nce-text-to-video-retrieval size: 1811 characters
+2024-09-11 22:19:31 : Notebook: s3d-mil-nce-text-to-video-retrieval has been processed
+2024-09-11 22:19:31 : Data saved to ./metadata/Openvino_data.json
