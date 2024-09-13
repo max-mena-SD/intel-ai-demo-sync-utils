@@ -1,0 +1,4 @@
+./docs/log/
+./data/readme_files/
+./tests/logs/
+./tests/__pycache__/
