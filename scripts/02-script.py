@@ -1,12 +1,12 @@
 import json
-import summary_classify as sc
-import log_progress as lp
+import summary_classify
+import log_progress
 
 # Initialize logger and classifier
 log_file = "./docs/log/"
 output_path = "./data/Openvino_data.json"
-logger = lp.LogProcess(log_file).log
-classifier = sc.SummaryClassify()
+logger = log_progress.LogProcess(log_file).log
+classifier = summary_classify.SummaryClassify()
 logger("Classifier has been initialized")
 
 # Load notebook data

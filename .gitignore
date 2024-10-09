@@ -2,3 +2,4 @@
 ./data/readme_files/
 ./tests/logs/
 ./tests/__pycache__/
+.env*
