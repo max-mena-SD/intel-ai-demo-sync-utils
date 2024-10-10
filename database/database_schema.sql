@@ -1,5 +1,6 @@
 
 CREATE TABLE IF NOT EXISTS metadata_premap (
+            id_name TEXT PRIMARY KEY,
             name TEXT,
             link TEXT,
             description TEXT, 

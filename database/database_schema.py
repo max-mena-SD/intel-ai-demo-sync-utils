@@ -1,14 +1,16 @@
 import sqlite3
+
 import os
 
 
 class StartDatabase:
     def __init__(self, database_name):
         self.database_name = database_name
+        self.folder_path = "database"
+        # self.folder_path = os.path.basename(os.getcwd())
 
     def check_database(self):
-        folder_path = "database"
-        db_path = os.path.join(folder_path, self.database_name)
+        db_path = os.path.join(self.folder_path, self.database_name)
         try:
             conn = sqlite3.connect(db_path)
             cursor = conn.cursor()
