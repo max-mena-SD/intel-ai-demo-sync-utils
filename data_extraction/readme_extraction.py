@@ -1,4 +1,5 @@
 import requests
+import database
 
 
 class ReadmeExtraction:
@@ -17,7 +18,34 @@ class ReadmeExtraction:
             return f"Error saving file {self.path_name}: {e}"
 
     def transform_readme(self, readme_text):
-        # it takes the name of one notebook and returns a transformed version of the readme file
+        pass
 
-        print(self.one_readme_file(readme_text))
-        # return readme_text
+    def get_readme(self):
+        reg_mod = []
+        registry = database.SelectDB("ai_demo_metadata.db").select_one_where(
+            "metadata_premap", "description is NULL"
+        )
+        if registry:
+            raw_readme = self.one_readme_file(registry[1])
+            reg_mod = list(registry)
+            reg_mod[3] = raw_readme
+            return reg_mod
+        return None
+
+    def save_readme(self, registry_list=None):
+
+        if registry_list:
+            insert_reg = registry_list
+            database.InsertUpdate("ai_demo_metadata.db").update_raw_readme(insert_reg)
+        else:
+            print("No registry to insert")
+
+    def get_all_readme(self):
+        empty_description = self.get_readme()
+        while empty_description:
+            self.save_readme(empty_description)
+            try:
+                empty_description = self.get_readme()
+            except Exception as e:
+                print(f"Error (all readme files processed): {e}")
+                break

@@ -16,7 +16,7 @@ import utils
 #     table_name, repository_url
 # ).extract_save_notebooks()
 
-# second step get the readme of the repositories
-# eliminate
+# # second step get the readme of the repositories
+# # eliminate
 reposityr_url = Config().README_NOTEBOOK_URL
-data_extraction.ReadmeExtraction(reposityr_url).transform_readme("pixtral")
+data_extraction.ReadmeExtraction(reposityr_url).get_all_readme()

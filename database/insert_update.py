@@ -1,6 +1,7 @@
-from datetime import date
 import sqlite3
 
+from datetime import date
+import re
 import os
 
 
@@ -10,7 +11,7 @@ class InsertUpdate:
         self.folder_path = "database"
         # self.folder_path = os.path.basename(os.getcwd())
 
-    def update_insert_readme(self, data_dict, platform):
+    def update_insert_readme(self, data_dict, platform, description=None):
         db_path = os.path.join(self.folder_path, self.database_name)
 
         try:
@@ -29,10 +30,10 @@ class InsertUpdate:
                         update_date = excluded.update_date
                 """,
                 (
-                    data_dict["Name"].replace("-", "").lower(),
+                    re.sub(r"[^a-z0-9\s]", "", data_dict["Name"].lower()),
                     data_dict["Name"],
                     data_dict["Link"],
-                    None,
+                    description,
                     platform,
                     None,
                     str(date.today()),
@@ -40,7 +41,29 @@ class InsertUpdate:
             )
             conn.commit()
             conn.close()
-            print("Data inserted successfully")
         except sqlite3.Error as e:
             print("Error: ", e)
             print("Data not inserted (def update_insert_readme)")
+
+    def update_raw_readme(self, registry):
+        db_path = os.path.join(self.folder_path, self.database_name)
+
+        try:
+            conn = sqlite3.connect(db_path)
+            cursor = conn.cursor()
+            cursor.execute(
+                f"""
+                    UPDATE {"metadata_premap"}
+                    SET description = ?
+                    WHERE id_name = ?
+                    """,
+                (
+                    registry[3],
+                    registry[0],
+                ),
+            )
+            conn.commit()
+            conn.close()
+        except sqlite3.Error as e:
+            print("Error: ", e)
+            print("Data not inserted (def update_raw_readme)")
