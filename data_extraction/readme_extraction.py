@@ -1,6 +1,8 @@
 import requests
 import database
 
+from utils import var_global as v
+
 
 class ReadmeExtraction:
     def __init__(self, url):
@@ -17,12 +19,9 @@ class ReadmeExtraction:
         except IOError as e:
             return f"Error saving file {self.path_name}: {e}"
 
-    def transform_readme(self, readme_text):
-        pass
-
     def get_readme(self):
         reg_mod = []
-        registry = database.SelectDB("ai_demo_metadata.db").select_one_where(
+        registry = database.SelectDB(v.VarGlobal.DATABASE_NAME).select_one_where(
             "metadata_premap", "description is NULL"
         )
         if registry:
@@ -36,7 +35,9 @@ class ReadmeExtraction:
 
         if registry_list:
             insert_reg = registry_list
-            database.InsertUpdate("ai_demo_metadata.db").update_raw_readme(insert_reg)
+            database.InsertUpdate(v.VarGlobal.DATABASE_NAME).update_raw_readme(
+                insert_reg
+            )
         else:
             print("No registry to insert")
 

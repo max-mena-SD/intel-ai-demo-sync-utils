@@ -64,7 +64,7 @@ class RepositoryExtraction:
                 print("Sleeping for 5 seconds")
         data_dict = self.parse_notebooks(table)
         db_name = utils.Config.DATABASE_NAME
-        platform = "OpenVINO"
+        platform = utils.Config.OPENVINO_REPOSITORY  # "OpenVINO"
 
         for data in data_dict.values():
             self.save_into_database(data, db_name, platform)

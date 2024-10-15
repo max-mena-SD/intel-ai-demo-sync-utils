@@ -42,3 +42,16 @@ CREATE TABLE IF NOT EXISTS metadata_tags_map (
     FOREIGN KEY (metadata_id) REFERENCES metadata_map(id_name),
     FOREIGN KEY (tag_id) REFERENCES tags(tag_id)
 );
+
+CREATE TABLE IF NOT EXISTS ai_demo_dashboard (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    prim TEXT,
+    demo_type TEXT,
+    demo_description TEXT,
+    demo_link TEXT,
+    demo_team TEXT,
+    usage_requirements TEXT,
+    tech TEXT,
+    start_date TEXT,
+    status TEXT
+);
