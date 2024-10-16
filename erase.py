@@ -2109,3 +2109,12 @@ test = [
         "Status": nan,
     },
 ]
+primero = {
+    "3dposeestimationwebcam": "This notebook contains a 3D multi-person pose estimation demo. The model is based on [Lightweight OpenPose] and [Single-Shot Multi-Person 3D Pose Estimation From Monocular RGB. It detects 2D coordinates of up to 18 types of key points: ears, eyes, nose, neck, shoulders, elbows, wrists, hips, knees, and ankles, as well as their 3D coordinates."
+}
+
+segundo = {
+    "3dposeestimationwebcam": "This notebook contains a 3D multi-person pose estimation demo. The model is based on [Lightweight OpenPose] and [Single-Shot Multi-Person 3D Pose Estimation From Monocular RGB. It detects 2D coordinates of up to 18 types of key points: ears, eyes, nose, neck, shoulders, elbows, wrists, hips, knees, and ankles, as well as their 3D coordinates."
+}
+ tercero = {
+  '3dposeestimationwebcam': 'This notebook contains a 3D multi-person pose estimation demo. The model is based on [Lightweight OpenPose] and [Single-Shot Multi-Person 3D Pose Estimation From Monocular RGB. It detects 2D coordinates of up to 18 types of key points: ears, eyes, nose, neck, shoulders, elbows, wrists, hips, knees, and ankles, as well as their 3D coordinates.'}

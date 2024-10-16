@@ -1,3 +1,5 @@
+from utils.var_global import VarGlobal
+
 import sqlite3
 
 import os
@@ -6,7 +8,7 @@ import os
 class SelectDB:
     def __init__(self, db):
         self.db = db
-        self.folder_path = "database"
+        self.folder_path = VarGlobal.DATA_BASE_PATH  # "database"
         # self.folder_path = os.path.basename(os.getcwd())
 
     def select_all(self, table_name):

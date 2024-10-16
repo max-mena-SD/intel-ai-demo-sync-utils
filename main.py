@@ -2,6 +2,7 @@ import database
 import data_extraction
 from utils import Config
 from utils.var_global import VarGlobal
+from data_transformation.add_summary import AddSummary
 
 import utils
 
@@ -27,4 +28,10 @@ import utils
 # # start to work with the data from smart sheet - AI Demo Dashboard
 # data_extraction.SmartsheetExtractor().save_all_to_table()
 
-database.InsertUpdate(VarGlobal.DATABASE_NAME).update_premap_smartsheet()
+# # update the metadata_premap table with the data from the smart sheet
+# # change this to go throug transformation instead of direct to database ***
+# database.InsertUpdate(VarGlobal.DATABASE_NAME).update_premap_smartsheet()
+
+
+# summarize the readme files first
+print(AddSummary().summarize_openvino())

@@ -11,4 +11,5 @@ class VarGlobal:
     SMARTSHEET_AI_DEMO = "AI Demo Dashboard.xlsx"
     SHEET_NAME_AI_DEMO = "AI Demo Dashboard"
     DATA_PATH = "data"
+    DATA_BASE_PATH = "database"
     TEST_DEMO = "test.json"

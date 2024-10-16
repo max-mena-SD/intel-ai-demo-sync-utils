@@ -3,3 +3,5 @@
 ./tests/logs/
 ./tests/__pycache__/
 .env*
+./utils/config.py
+./utils/var_globals.py

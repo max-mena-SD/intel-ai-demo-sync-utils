@@ -11,7 +11,7 @@ import os
 class InsertUpdate:
     def __init__(self, database_name):
         self.database_name = database_name
-        self.folder_path = "database"
+        self.folder_path = VarGlobal.DATA_BASE_PATH
         # self.folder_path = os.path.basename(os.getcwd())
 
     def update_insert_readme(self, data_dict, platform, description=None):
@@ -22,7 +22,7 @@ class InsertUpdate:
             cursor = conn.cursor()
             cursor.execute(
                 f"""
-                    INSERT INTO {"metadata_premap"} (id_name, name, link, description, platform, summary, update_date)
+                    INSERT INTO {VarGlobal.TABLE_METADATA_PREMAP} (id_name, name, link, description, platform, summary, update_date)
                     VALUES (?,?,?,?,?,?,?)
                     ON CONFLICT(id_name) DO UPDATE SET 
                         name = excluded.name,
