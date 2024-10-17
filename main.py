@@ -2,6 +2,7 @@ import database
 import data_extraction
 from utils import Config
 from utils.var_global import VarGlobal
+
 from data_transformation.add_summary import AddSummary
 
 import utils
@@ -33,5 +34,5 @@ import utils
 # database.InsertUpdate(VarGlobal.DATABASE_NAME).update_premap_smartsheet()
 
 
-# summarize the readme files first
-print(AddSummary().summarize_openvino())
+# # summarize the readme files first
+# AddSummary().process_all_summary("openvino")

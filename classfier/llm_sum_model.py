@@ -32,16 +32,22 @@ class LLMSumModel:
             tokenizer=self.tokenizer,  # Agregar el tokenizador aquí
             batch_size=1,
             device=-1,  # Usar CPU
-            use_fast=True,
         )
 
-    def to_sumarize(self, article):
+    def to_sumarize(self, article: str) -> str:
+        tokens = self.tokenizer.encode(article)
+        num_tokens = len(tokens)
+
+        if num_tokens >= 1024:
+            return ""
+
         try:
             summary = self.summarizer(
+                # article  # , max_length=130, min_length=30, do_sample=False, framework="pt"
                 article,
-                max_length=130,
+                max_length=1024,
                 min_length=30,
-                do_sample=False,  # , framework="pt"
+                do_sample=False,
             )
             # self.logger("Summarize successful")
             print("Summarize successful")
@@ -49,4 +55,4 @@ class LLMSumModel:
         except Exception as e:
             # self.logger(f"Error: {e} - Summarize not successful")
             print(f"Error: {e} - Summarize not successful")
-            return None
+            return num_tokens

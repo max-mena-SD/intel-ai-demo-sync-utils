@@ -71,7 +71,7 @@ class InsertUpdate:
             print("Error: ", e)
             print("Data not inserted (def update_raw_readme)")
 
-    def update_insert_smartsheet(self, data_dict, table_name):
+    def update_insert_smartsheet(self, data_dict: dict, table_name: str) -> None:
         db_path = os.path.join(self.folder_path, self.database_name)
         keys = ", ".join(data_dict.keys())
 
@@ -136,3 +136,34 @@ class InsertUpdate:
         except sqlite3.Error as e:
             print("Error: ", e)
             print("Data not inserted (def update_premap_smartsheet)")
+
+    def update_one_where(
+        self,
+        table_name: str,
+        key_name: str,
+        field_name: str,
+        key_value: str,
+        value_set: str,
+    ) -> None:
+        db_path = os.path.join(self.folder_path, self.database_name)
+
+        try:
+            conn = sqlite3.connect(db_path)
+            cursor = conn.cursor()
+            cursor.execute(
+                f"""
+                    UPDATE  
+                        {table_name} 
+                    SET 
+                        {field_name} = ? 
+                    WHERE
+                        {key_name} = ?
+                        ;
+                """,
+                (value_set, key_value),
+            )
+            conn.commit()
+            conn.close()
+        except sqlite3.Error as e:
+            print("Error: ", e)
+            print("Data not inserted (def update_one_where)")
