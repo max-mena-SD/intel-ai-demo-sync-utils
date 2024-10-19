@@ -15,3 +15,6 @@ class VarGlobal:
     DATA_PATH = "data"
     DATA_BASE_PATH = "database"
     TEST_DEMO = "test.json"
+
+    TABLE_METADATA_TAGS = "metadata_tags_map"
+    METADATA_TAGS_PK = "id_tag_map"

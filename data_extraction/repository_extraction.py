@@ -4,7 +4,7 @@ import requests
 from bs4 import BeautifulSoup as bs
 
 import database
-import utils
+from utils.var_global import VarGlobal
 
 
 class RepositoryExtraction:
@@ -63,8 +63,8 @@ class RepositoryExtraction:
                 time.sleep(5)
                 print("Sleeping for 5 seconds")
         data_dict = self.parse_notebooks(table)
-        db_name = utils.Config.DATABASE_NAME
-        platform = utils.Config.OPENVINO_REPOSITORY  # "OpenVINO"
+        db_name = VarGlobal.DATABASE_NAME
+        platform = VarGlobal.OPENVINO_REPOSITORY  # "OpenVINO"
 
         for data in data_dict.values():
             self.save_into_database(data, db_name, platform)

@@ -1,17 +1,3 @@
-# from transformers import pipeline
-
-
-# class LLMSumModel:
-#     def __init__(self):
-#         # self.model = TFBartForConditionalGeneration.from_pretrained("facebook/bart-large-cnn")
-#         self.summarizer = pipeline(
-#             "summarization",
-#             model="facebook/bart-large-cnn",
-#             batch_size=1,
-#             device=-1,
-#             use_fast=True,
-#         )
-
 from transformers import TFBartForConditionalGeneration, BartTokenizer, pipeline
 
 

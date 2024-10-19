@@ -167,3 +167,22 @@ class InsertUpdate:
         except sqlite3.Error as e:
             print("Error: ", e)
             print("Data not inserted (def update_one_where)")
+
+    def update_premap_with_map(self, destination_table, origin_table) -> None:
+        db_path = os.path.join(self.folder_path, self.database_name)
+
+        try:
+            conn = sqlite3.connect(db_path)
+            cursor = conn.cursor()
+            cursor.execute(
+                f"""INSERT INTO {destination_table} (id_name, title, path, imageUrl, createDate,  modifiedDate, link)	
+                    SELECT id_name, name, link, NULL, update_date, {date.today()}, link
+                    FROM {origin_table}
+                    WHERE summary is not NULL
+                    """
+            )
+            conn.commit()
+            conn.close()
+        except sqlite3.Error as e:
+            print("Error: ", e)
+            print("Data not inserted (def update_premap_with_map)")
