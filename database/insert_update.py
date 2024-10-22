@@ -175,8 +175,8 @@ class InsertUpdate:
             conn = sqlite3.connect(db_path)
             cursor = conn.cursor()
             cursor.execute(
-                f"""INSERT INTO {destination_table} (id_name, title, path, imageUrl, createDate,  modifiedDate, link)	
-                    SELECT id_name, name, link, NULL, update_date, {date.today()}, link
+                f"""INSERT OR REPLACE INTO {destination_table} (id_name, title, path, imageUrl, createDate,  modifiedDate, link)	
+                    SELECT id_name, name, link, NULL, update_date, CURRENT_DATE, link
                     FROM {origin_table}
                     WHERE summary is not NULL
                     """
@@ -186,3 +186,37 @@ class InsertUpdate:
         except sqlite3.Error as e:
             print("Error: ", e)
             print("Data not inserted (def update_premap_with_map)")
+
+    def insert_tags_map(self, foreign_key: str, category: str, tag: list) -> None:
+        db_path = os.path.join(self.folder_path, self.database_name)
+
+        try:
+            conn = sqlite3.connect(db_path)
+            cursor = conn.cursor()
+            cursor.execute(
+                f"""
+                INSERT INTO metadata_tags_map ( metadata_id, tag_id )
+                SELECT '{foreign_key}', t.tag_id
+                FROM tags as t
+                LEFT JOIN tag_categories as tc
+                on	t.category_id = tc.category_id
+                WHERE lower (tc.category_name) = lower('{category}')
+                AND t.tag_name in({(','.join( "'"+str(x)+"'" for x in tag))})
+                    """
+            )
+            # print(
+            #     f"""
+            #     INSERT INTO metadata_tags_map ( metadata_id, tag_id )
+            #     SELECT '{foreign_key}', t.tag_id
+            #     FROM tags as t
+            #     LEFT JOIN tag_categories as tc
+            #     on	t.category_id = tc.category_id
+            #     WHERE lower (tc.category_name) = lower('{category}')
+            #     AND t.tag_name in({(','.join( "'"+str(x)+"'" for x in tag))})
+            #         """
+            # )
+            conn.commit()
+            conn.close()
+        except sqlite3.Error as e:
+            print("Error: ", e.args)
+            print("Data not inserted (def insert_tags_map)")

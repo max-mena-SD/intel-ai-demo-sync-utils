@@ -40,7 +40,7 @@ class SelectDB:
             return None
 
     def select_one_join_where(
-        self, first_table_name, second_table_name, join_key, where
+        self, first_table_name, second_table_name, first_key, second_key, where
     ):
         db_path = os.path.join(self.folder_path, self.db)
         try:
@@ -50,7 +50,7 @@ class SelectDB:
                 f"""SELECT a.*
                 FROM {first_table_name} as a
                 LEFT JOIN {second_table_name} as b
-                ON a.{join_key} = b.{join_key}
+                ON a.{first_key} = b.{second_key}
                 WHERE {where}
                 """
             )

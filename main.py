@@ -38,8 +38,8 @@ import utils
 # # summarize the readme files first
 # AddSummary().process_all_summary("openvino")
 
-# Fill the metadata_map table with the information from the metadata_premap table
-PopulateTable().populate_premap_with_map()
+# # Fill the metadata_map table with the information from the metadata_premap table
+# PopulateTable().populate_premap_with_map()
 
-# # Add the labels and save them in the database
-# AddLabels().save_label_info()
+# Add the labels and save them in the database
+AddLabels().source_all_labels()
