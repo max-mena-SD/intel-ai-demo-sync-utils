@@ -7,7 +7,9 @@ class VarGlobal:
     TABLE_METADATA_PREMAP = "metadata_premap"
     METADATA_PREMAP_SUMMARY = "summary"
     METADATA_PREMAP_PK = "id_name"
+
     TABLE_METADATA_MAP = "metadata_map"
+    METADATA_MAP_PK = "id_name"
     TABLE_AI_DEMO_DASH = "ai_demo_dashboard"
     OPENVINO_PLATFORM = "OpenVINO"
     SMARTSHEET_AI_DEMO = "AI Demo Dashboard.xlsx"
@@ -18,3 +20,6 @@ class VarGlobal:
 
     TABLE_METADATA_TAGS = "metadata_tags_map"
     METADATA_TAGS_PK = "id_tag_map"
+
+    TABLE_METADATA_TAGS_MAP = "metadata_tags_map"
+    METADATA_TAGS_MAP_PK = "metadata_id"

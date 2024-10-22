@@ -86,8 +86,8 @@ class MnliLabelModel:
                 print(f"Error: {e} - Classify not successful")
         return dict_labels
 
-    def insert_label_info(self, dict_premap: list) -> dict:
+    def insert_label_info(self, summary: str) -> dict:
 
-        dict_classification = self.clasify_all_labels(dict_premap[5])
+        dict_classification = self.clasify_all_labels(summary)
 
         return dict_classification
