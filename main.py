@@ -2,9 +2,11 @@ import database
 import data_extraction
 from utils.var_global import VarGlobal
 
-from data_transformation.add_labels import AddLabels
-from data_transformation.add_summary import AddSummary
-from data_transformation.populate_table import PopulateTable
+# from data_transformation.add_labels import AddLabels
+# from data_transformation.add_summary import AddSummary
+# from data_transformation.populate_table import PopulateTable
+
+from data_load.json_elaboration import JsonElaboration
 
 import utils
 
@@ -41,5 +43,8 @@ import utils
 # # Fill the metadata_map table with the information from the metadata_premap table
 # PopulateTable().populate_premap_with_map()
 
-# Add the labels and save them in the database
-AddLabels().source_all_labels()
+# # Add the labels and save them in the database
+# AddLabels().source_all_labels()
+
+# Create a json file with the information from database
+JsonElaboration().json_sql_element()
