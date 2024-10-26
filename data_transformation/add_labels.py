@@ -50,7 +50,7 @@ class AddLabels:
 
     def save_label_info(self, summary: dict) -> None:
         dict_premap = summary
-        label_info = self.get_info_label(dict_premap[5])
+        label_info = self.get_info_label(dict_premap[3])
         foreign_key = dict_premap[0]
 
         for key, value in label_info.items():
