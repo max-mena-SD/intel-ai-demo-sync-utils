@@ -3,6 +3,9 @@ class VarGlobal:
     OPENVINO_REPOSITORY = (
         "https://github.com/openvinotoolkit/openvino_notebooks/tree/latest/notebooks"
     )
+    DATA_JSON_NAME = "aidemos-metadata-map.json"
+    DATA_JSON_FOLDER = "data"
+
     DATABASE_NAME = "ai_demo_metadata.db"
     TABLE_METADATA_PREMAP = "metadata_premap"
     METADATA_PREMAP_SUMMARY = "summary"
@@ -23,3 +26,6 @@ class VarGlobal:
 
     TABLE_METADATA_TAGS_MAP = "metadata_tags_map"
     METADATA_TAGS_MAP_PK = "metadata_id"
+
+    TABLE_JSON_FORMATTED_DATA = "json_formatted_data"
+    JSON_FORMATTED_DATA_PK = "id_name"

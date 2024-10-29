@@ -90,6 +90,13 @@ CREATE VIEW IF NOT EXISTS processing_stats AS (
     FROM processed_demos_control
     GROUP BY source_table, processing_status);
 
+CREATE TABLE json_formatted_data (
+    id_name VARCHAR(255) PRIMARY KEY,  -- Mantiene consistencia con otras tablas
+    dict_data TEXT,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,  -- Útil para seguimiento
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
 CREATE INDEX IF NOT EXISTS idx_metadata_map_status ON metadata_map(status);
 CREATE INDEX IF NOT EXISTS idx_metadata_map_createDate ON metadata_map(createDate);
 CREATE INDEX IF NOT EXISTS idx_metadata_map_modifiedDate ON metadata_map(modifiedDate);

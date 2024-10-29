@@ -47,4 +47,5 @@ import utils
 # AddLabels().source_all_labels()
 
 # Create a json file with the information from database
-JsonElaboration().json_sql_element()
+# JsonElaboration().json_sql_element()
+JsonElaboration().sql_to_json_builder()

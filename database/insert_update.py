@@ -204,19 +204,47 @@ class InsertUpdate:
                 AND t.tag_name in({(','.join( "'"+str(x)+"'" for x in tag))})
                     """
             )
-            # print(
-            #     f"""
-            #     INSERT INTO metadata_tags_map ( metadata_id, tag_id )
-            #     SELECT '{foreign_key}', t.tag_id
-            #     FROM tags as t
-            #     LEFT JOIN tag_categories as tc
-            #     on	t.category_id = tc.category_id
-            #     WHERE lower (tc.category_name) = lower('{category}')
-            #     AND t.tag_name in({(','.join( "'"+str(x)+"'" for x in tag))})
-            #         """
-            # )
             conn.commit()
             conn.close()
         except sqlite3.Error as e:
             print("Error: ", e.args)
             print("Data not inserted (def insert_tags_map)")
+
+    def insert_dict_json(self, id_name: str, sql_result: dict) -> bool:
+        try:
+            db_path = os.path.join(self.folder_path, self.database_name)
+            conn = sqlite3.connect(db_path)
+            cursor = conn.cursor()
+            cursor.execute(
+                f"""
+                    INSERT OR REPLACE INTO json_formatted_data (id_name, dict_data)
+                    VALUES(?,?);
+                """,
+                (id_name, str(sql_result)),
+            )
+            conn.commit()
+            conn.close()
+            return True
+        except sqlite3.Error as e:
+            print("Error: ", e.args)
+            print("Data not inserted (def insert_tags_map)")
+            return False
+
+    def update_json_formatted_data(self) -> bool:
+        try:
+            db_path = os.path.join(self.folder_path, self.database_name)
+            conn = sqlite3.connect(db_path)
+            cursor = conn.cursor()
+            cursor.execute(
+                f"""
+                    UPDATE json_formatted_data SET status = 'completed' WHERE status = 'latest';
+                """,
+                (),
+            )
+            conn.commit()
+            conn.close()
+            return True
+        except sqlite3.Error as e:
+            print("Error: ", e.args)
+            print("Data not inserted (def update_json_formatted_data)")
+            return False
