@@ -1,0 +1,44 @@
+2024-10-29 18:20:19,570 - INFO - Starting pipeline execution
+2024-10-29 18:20:19,570 - INFO - Starting step: initialize_database
+2024-10-29 18:20:19,570 - ERROR - Error in step initialize_database: cannot access local variable 'tag_status' where it is not associated with a value
+Traceback (most recent call last):
+  File "C:\Users\mmenaarx\Project_AI_CoE\ai-demo-sync-utils-main\main.py", line 116, in wrapper
+    result = func(self, *args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mmenaarx\Project_AI_CoE\ai-demo-sync-utils-main\main.py", line 132, in initialize_database
+    db_status = db_instance.database_creation()
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mmenaarx\Project_AI_CoE\ai-demo-sync-utils-main\database\database_schema.py", line 68, in database_creation
+    return db_status and tag_status
+                         ^^^^^^^^^^
+UnboundLocalError: cannot access local variable 'tag_status' where it is not associated with a value
+2024-10-29 18:20:19,574 - ERROR - Pipeline failed with error:
+Traceback (most recent call last):
+  File "C:\Users\mmenaarx\Project_AI_CoE\ai-demo-sync-utils-main\main.py", line 185, in run_pipeline
+    self.initialize_database()
+  File "C:\Users\mmenaarx\Project_AI_CoE\ai-demo-sync-utils-main\main.py", line 116, in wrapper
+    result = func(self, *args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mmenaarx\Project_AI_CoE\ai-demo-sync-utils-main\main.py", line 132, in initialize_database
+    db_status = db_instance.database_creation()
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mmenaarx\Project_AI_CoE\ai-demo-sync-utils-main\database\database_schema.py", line 68, in database_creation
+    return db_status and tag_status
+                         ^^^^^^^^^^
+UnboundLocalError: cannot access local variable 'tag_status' where it is not associated with a value
+2024-10-29 18:20:19,574 - ERROR - Pipeline execution failed
+Traceback (most recent call last):
+  File "C:\Users\mmenaarx\Project_AI_CoE\ai-demo-sync-utils-main\main.py", line 205, in <module>
+    pipeline.run_pipeline()
+  File "C:\Users\mmenaarx\Project_AI_CoE\ai-demo-sync-utils-main\main.py", line 185, in run_pipeline
+    self.initialize_database()
+  File "C:\Users\mmenaarx\Project_AI_CoE\ai-demo-sync-utils-main\main.py", line 116, in wrapper
+    result = func(self, *args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mmenaarx\Project_AI_CoE\ai-demo-sync-utils-main\main.py", line 132, in initialize_database
+    db_status = db_instance.database_creation()
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mmenaarx\Project_AI_CoE\ai-demo-sync-utils-main\database\database_schema.py", line 68, in database_creation
+    return db_status and tag_status
+                         ^^^^^^^^^^
+UnboundLocalError: cannot access local variable 'tag_status' where it is not associated with a value

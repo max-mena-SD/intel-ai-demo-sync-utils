@@ -1,0 +1,10 @@
+./docs/log/
+./data/readme_files/
+./tests/logs/
+.env*
+.venv*
+./utils/config.py
+./utils/var_globals.py
+__pycache__/
+./data/"AI Demo Dashboard.xlsx"
+logs/

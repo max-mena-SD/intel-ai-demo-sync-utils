@@ -1,0 +1,10 @@
+{
+    "sqltools.connections": [
+        {
+            "previewLimit": 50,
+            "driver": "SQLite",
+            "name": "Demo_Repository",
+            "database": "${workspaceFolder:ai-demo-sync-utils}/database/ai_demo_metadata.db"
+        }
+    ]
+}
