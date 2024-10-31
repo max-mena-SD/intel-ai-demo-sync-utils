@@ -23,14 +23,9 @@ class InsertUpdate:
             cursor = conn.cursor()
             cursor.execute(
                 f"""
-                    INSERT INTO {VarGlobal.TABLE_METADATA_PREMAP} (id_name, name, link, description, platform, summary, update_date)
-                    VALUES (?,?,?,?,?,?,?)
+                    INSERT INTO {VarGlobal.TABLE_METADATA_PREMAP} (id_name, name, link, description, platform, update_date)
+                    VALUES (?,?,?,?,?,?)
                     ON CONFLICT(id_name) DO UPDATE SET 
-                        name = excluded.name,
-                        link = excluded.link,
-                        description = excluded.description,
-                        platform = excluded.platform,
-                        summary = excluded.summary,
                         update_date = excluded.update_date
                 """,
                 (
@@ -39,7 +34,6 @@ class InsertUpdate:
                     data_dict["Link"],
                     description,
                     platform,
-                    None,
                     str(date.today()),
                 ),
             )
@@ -169,7 +163,7 @@ class InsertUpdate:
             print("Error: ", e)
             print("Data not inserted (def update_one_where)")
 
-    def update_premap_with_map(self, destination_table, origin_table) -> None:
+    def update_map_with_premap(self, destination_table, origin_table) -> None:
         db_path = os.path.join(self.folder_path, self.database_name)
 
         try:
@@ -187,6 +181,27 @@ class InsertUpdate:
         except sqlite3.Error as e:
             print("Error: ", e)
             print("Data not inserted (def update_premap_with_map)")
+
+    def update_map_with_table(
+        self, destination_table: str, origin_table: str, column_names: list
+    ) -> None:
+        db_path = os.path.join(self.folder_path, self.database_name)
+
+        try:
+            conn = sqlite3.connect(db_path)
+            cursor = conn.cursor()
+            cursor.execute(  # the query has the values to be inserted necessary, the select could be dyanamic
+                f"""INSERT OR REPLACE INTO {destination_table} (id_name, title, path, imageUrl, createDate,  modifiedDate, link)	
+                    SELECT {(','.join( "'"+str(x)+"'" for x in column_names))}""",  # this need to be replace to take any type of names
+                f"""FROM {origin_table}
+                    WHERE summary is not NULL
+                    """,
+            )
+            conn.commit()
+            conn.close()
+        except sqlite3.Error as e:
+            print("Error: ", e)
+            print("Data not inserted (def update_map_with_table) failed to update")
 
     def insert_tags_map(self, foreign_key: str, category: str, tag: list) -> None:
         db_path = os.path.join(self.folder_path, self.database_name)

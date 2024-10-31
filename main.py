@@ -95,8 +95,11 @@ class Pipeline:
         # Generate summaries
         AddSummary().process_all_summary("openvino")
 
-        # Populate metadata
-        PopulateTable().populate_premap_with_map()
+        # Populate metadata_map
+        PopulateTable().populate_map_with_premap()
+
+        # Populate metadata_map
+        PopulateTable().populate_map_with_table()
 
         # Process labels
         AddLabels().source_all_labels()

@@ -1,4 +1,4 @@
-INSERT INTO tag_categories (category_id, category_name) VALUES
+INSERT OR REPLACE INTO tag_categories (category_id, category_name) VALUES
 (1, "industry"),
 (2, "type"),
 (3, "technology"),
@@ -7,7 +7,7 @@ INSERT INTO tag_categories (category_id, category_name) VALUES
 (6, "use_case_functionality");
 
 
-INSERT INTO tags (tag_id, category_id, tag_name) VALUES
+INSERT OR REPLACE INTO tags (tag_id, category_id, tag_name) VALUES
 (1, 1, "Healthcare"),
 (2, 1, "Finance"),
 (3, 1, "Manufacturing"),

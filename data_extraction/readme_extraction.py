@@ -19,7 +19,7 @@ class ReadmeExtraction:
         except IOError as e:
             return f"Error saving file {self.path_name}: {e}"
 
-    def get_readme(self):
+    def get_readme(self):  # instead of looking for the json will receive a sql
         reg_mod = []
         registry = database.SelectDB(v.VarGlobal.DATABASE_NAME).select_one_where(
             "metadata_premap", "description is NULL"

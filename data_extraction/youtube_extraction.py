@@ -17,7 +17,9 @@ class YoutubeExtraction:
                 "An error occurred while reading the JSON file. Getting data from youtube"
             )
 
-    def youtube_retrieval(self, path_file):
+    def youtube_retrieval(
+        self, path_file
+    ):  # instead of looking for the json will receive a sql
 
         file_path = "../data/test_youtube.json"  # "./data/test_youtube.json"
         try:
