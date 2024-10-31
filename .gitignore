@@ -5,6 +5,11 @@
 .venv*
 ./utils/config.py
 ./utils/var_globals.py
-__pycache__/
 ./data/"AI Demo Dashboard.xlsx"
-logs/
+!logs/*/
+!data/*/
+__pycache__/
+*.pyc
+
+# consider to erase this 2 lines
+database/ai_demo_metadata.db

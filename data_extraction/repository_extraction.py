@@ -1,4 +1,5 @@
-from datetime import time
+import logging
+from time import sleep
 import json
 import requests
 from bs4 import BeautifulSoup as bs
@@ -53,18 +54,37 @@ class RepositoryExtraction:
             print(f"Error saving to database from (repository_extraction): {e}")
 
     def extract_save_notebooks(self):
-        attempts = 5
-        table = None
-        for _ in range(attempts):
-            table = self.extract_notebooks()
-            if table is not None:
-                break
-            else:
-                time.sleep(10)
-                print("Sleeping for 5 seconds")
-        data_dict = self.parse_notebooks(table)
-        db_name = VarGlobal.DATABASE_NAME
-        platform = VarGlobal.OPENVINO_REPOSITORY  # "OpenVINO"
+        max_attempts = 5
+        backoff_factor = 2  # Aumenta el tiempo de espera exponencialmente
 
-        for data in data_dict.values():
-            self.save_into_database(data, db_name, platform)
+        for attempt in range(max_attempts):
+            try:
+                table = self.extract_notebooks()
+
+                if table is None:
+                    raise ValueError("No se pudo extraer la tabla")
+
+                data_dict = self.parse_notebooks(table)
+
+                if not data_dict:
+                    raise ValueError("No hay datos para guardar")
+
+                for data in data_dict.values():
+                    try:
+                        self.save_into_database(
+                            data, VarGlobal.DATABASE_NAME, VarGlobal.OPENVINO_REPOSITORY
+                        )
+                    except Exception as db_error:
+                        logging.error(f"Error guardando en DB: {db_error}")
+
+                return True  # Éxito
+
+            except Exception as e:
+                wait_time = (backoff_factor**attempt) * 10
+                logging.warning(f"Intento {attempt + 1}/{max_attempts} fallido: {e}")
+                sleep(wait_time)
+
+        logging.error(
+            "Extracción y guardado de notebooks fallido después de máximos intentos"
+        )
+        return False
