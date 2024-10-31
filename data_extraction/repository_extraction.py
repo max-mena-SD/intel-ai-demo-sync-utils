@@ -55,19 +55,19 @@ class RepositoryExtraction:
 
     def extract_save_notebooks(self):
         max_attempts = 5
-        backoff_factor = 2  # Aumenta el tiempo de espera exponencialmente
+        backoff_factor = 2  # Increases waiting time exponentially
 
         for attempt in range(max_attempts):
             try:
                 table = self.extract_notebooks()
 
                 if table is None:
-                    raise ValueError("No se pudo extraer la tabla")
+                    raise ValueError("Failed to extract table")
 
                 data_dict = self.parse_notebooks(table)
 
                 if not data_dict:
-                    raise ValueError("No hay datos para guardar")
+                    raise ValueError("There is no data to save")
 
                 for data in data_dict.values():
                     try:
@@ -75,16 +75,14 @@ class RepositoryExtraction:
                             data, VarGlobal.DATABASE_NAME, VarGlobal.OPENVINO_REPOSITORY
                         )
                     except Exception as db_error:
-                        logging.error(f"Error guardando en DB: {db_error}")
+                        logging.error(f"Error saving to DB: {db_error}")
 
-                return True  # Éxito
+                return True  # Success
 
             except Exception as e:
                 wait_time = (backoff_factor**attempt) * 10
-                logging.warning(f"Intento {attempt + 1}/{max_attempts} fallido: {e}")
+                logging.warning(f"Attempt {attempt + 1}/{max_attempts} failed: {e}")
                 sleep(wait_time)
 
-        logging.error(
-            "Extracción y guardado de notebooks fallido después de máximos intentos"
-        )
+        logging.error("Notebook extraction and saving failed after maximum attempts")
         return False
