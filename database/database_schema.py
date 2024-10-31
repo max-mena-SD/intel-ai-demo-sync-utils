@@ -26,47 +26,56 @@ class StartDatabase:
             print("Database does not exist.")
             return False
 
-    def create_database(self) -> bool:  # ,database_name):
+    def check_tag_information(self, table_name) -> tuple:
         db_path = os.path.join(self.folder_path, self.database_name)
         try:
             conn = sqlite3.connect(db_path)
             cursor = conn.cursor()
-            with open("database/database_schema.sql", "r") as sql_file:
-                cursor.executescript(sql_file.read())
-            conn.commit()
+            cursor.execute(
+                f"""
+                            SELECT count(*)
+                            FROM {table_name};
+                            """,
+                (),
+            )
+            number_rows = cursor.fetchone()
             conn.close()
-            return True
+            return number_rows
         except sqlite3.Error as e:
             print("Error: ", e)
-            print("Database is not created.")
+            print("Tag information not inserted.")
             return False
 
-    def add_tag_information(self) -> bool:  # ,database_name):
+    def run_sql_script(self, script_name) -> bool:  # ,database_name):
         db_path = os.path.join(self.folder_path, self.database_name)
+        script_path = os.path.join(self.folder_path, script_name)
+
         try:
             conn = sqlite3.connect(db_path)
             cursor = conn.cursor()
-            with open("database/add_tag_information.sql", "r") as sql_file:
+            with open(script_path, "r") as sql_file:
                 cursor.executescript(sql_file.read())
             conn.commit()
             conn.close()
             return True
         except sqlite3.Error as e:
             print("Error: ", e)
-            print("Tags were not added.")
+            print(f"The script {script_name} did not worked.")
             return False
 
     def database_creation(self) -> bool:
-        db_status = False
-        tag_status = False
-
         db_status = self.check_database()
 
         if db_status == False:
-            db_status = self.create_database()
-            if db_status == True:
-                tag_status = self.add_tag_information()
+            db_status = self.run_sql_script("database_schema.sql")
 
-        final_status = db_status == tag_status
+        tags = self.check_tag_information("tags")
+        tag_categories = self.check_tag_information("tag_categories")
+        tag_status = False
+
+        if 0 in tags or 0 in tag_categories:
+            db_status = self.run_sql_script("add_tag_information.sql")
+
+        final_status = True if db_status or tag_status else False
 
         return final_status

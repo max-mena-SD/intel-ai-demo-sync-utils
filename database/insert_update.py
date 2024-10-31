@@ -23,14 +23,9 @@ class InsertUpdate:
             cursor = conn.cursor()
             cursor.execute(
                 f"""
-                    INSERT INTO {VarGlobal.TABLE_METADATA_PREMAP} (id_name, name, link, description, platform, summary, update_date)
-                    VALUES (?,?,?,?,?,?,?)
+                    INSERT INTO {VarGlobal.TABLE_METADATA_PREMAP} (id_name, name, link, description, platform, update_date)
+                    VALUES (?,?,?,?,?,?)
                     ON CONFLICT(id_name) DO UPDATE SET 
-                        name = excluded.name,
-                        link = excluded.link,
-                        description = excluded.description,
-                        platform = excluded.platform,
-                        summary = excluded.summary,
                         update_date = excluded.update_date
                 """,
                 (
@@ -39,7 +34,6 @@ class InsertUpdate:
                     data_dict["Link"],
                     description,
                     platform,
-                    None,
                     str(date.today()),
                 ),
             )
