@@ -9,7 +9,7 @@ import re
 class AddSummary:
 
     def __init__(self):
-        self.summarizar = LLMSumModel()
+        self.summarizer = LLMSumModel()
         self.db_instance = SelectDB(VarGlobal.DATABASE_NAME)
 
     def eliminate_special_characters(self, text: str) -> str:
@@ -35,11 +35,11 @@ class AddSummary:
 
         dict_reg = {}
         description = self.eliminate_special_characters(tup_reg[3])
-        summary = self.summarizar.to_sumarize(description)
+        summary = self.summarizer.to_sumarize(description)
 
         if summary == "":
             other = self.eliminate_link_info(description)
-            summary = self.summarizar.to_sumarize(other)
+            summary = self.summarizer.to_sumarize(other)
 
         dict_reg[tup_reg[0]] = summary
 

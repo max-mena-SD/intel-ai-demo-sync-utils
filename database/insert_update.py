@@ -17,6 +17,7 @@ class InsertUpdate:
     def update_insert_readme(self, data_dict, platform, description=None):
         db_path = os.path.join(self.folder_path, self.database_name)
 
+        platform = "openvino" if "openvino" in str(platform).lower() else platform
         try:
             conn = sqlite3.connect(db_path)
             cursor = conn.cursor()
@@ -81,7 +82,7 @@ class InsertUpdate:
             conn = sqlite3.connect(db_path)
             cursor = conn.cursor()
             cursor.execute(
-                f"""INSERT INTO {table_name} (prim, demo_type, demo_description, demo_link, demo_team, usage_requirements, tech, start_date, status)
+                f"""INSERT OR REPLACE INTO {table_name} (prim, demo_type, demo_description, demo_link, demo_team, usage_requirements, tech, start_date, status)
                     VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?);""",
                 (
                     # data_dict["Primary"].lower().replace(" ", ""),

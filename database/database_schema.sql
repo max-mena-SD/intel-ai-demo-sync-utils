@@ -17,7 +17,7 @@ CREATE TABLE IF NOT EXISTS metadata_map (
     imageUrl TEXT,
     createDate TEXT,
     modifiedDate TEXT,
-    link TEXT
+    link TEXT,
     status TEXT DEFAULT 'active'
 );
 
@@ -57,48 +57,49 @@ CREATE TABLE IF NOT EXISTS ai_demo_dashboard (
     status TEXT-- Table to track processed demos
 );
 
-CREATE TABLE IF NOT EXISTS processed_demos_control (
-    id INTEGER PRIMARY KEY AUTOINCREMENT,
-    demo_id TEXT,                    -- Reference to the demo being processed
-    source_table TEXT,               -- Which table the demo came from (metadata_map or ai_demo_dashboard)
-    processing_status TEXT,          -- Status of the processing (pending, completed, failed)
-    processing_date TIMESTAMP,       -- When the processing occurred
-    json_file_path TEXT,            -- Where the JSON file was saved
-    error_message TEXT,             -- Any error messages during processing
-    last_modified_date TIMESTAMP,    -- Last time this record was updated
-    created_date TIMESTAMP,          -- When this record was created
-    processed_by TEXT,              -- Who or what process handled this
-    version TEXT,                   -- Version of the processing script
+-- CREATE TABLE IF NOT EXISTS processed_demos_control (
+--     id INTEGER PRIMARY KEY AUTOINCREMENT,
+--     demo_id TEXT,                    -- Reference to the demo being processed
+--     source_table TEXT,               -- Which table the demo came from (metadata_map or ai_demo_dashboard)
+--     processing_status TEXT,          -- Status of the processing (pending, completed, failed)
+--     processing_date TIMESTAMP,       -- When the processing occurred
+--     json_file_path TEXT,            -- Where the JSON file was saved
+--     error_message TEXT,             -- Any error messages during processing
+--     last_modified_date TIMESTAMP,    -- Last time this record was updated
+--     created_date TIMESTAMP,          -- When this record was created
+--     processed_by TEXT,              -- Who or what process handled this
+--     version TEXT,                   -- Version of the processing script
     
-    -- Add foreign key constraints as needed
-    FOREIGN KEY (demo_id) REFERENCES metadata_map(id_name),
+--     -- Add foreign key constraints as needed
+--     FOREIGN KEY (demo_id) REFERENCES metadata_map(id_name),
     
-    -- Add indexes for frequently queried columns
-    CREATE INDEX idx_demo_id ON processed_demos_control(demo_id),
-    CREATE INDEX idx_processing_status ON processed_demos_control(processing_status),
-    CREATE INDEX idx_processing_date ON processed_demos_control(processing_date)
-);
+--     -- Add indexes for frequently queried columns
+--     CREATE INDEX idx_demo_id ON processed_demos_control(demo_id),
+--     CREATE INDEX idx_processing_status ON processed_demos_control(processing_status),
+--     CREATE INDEX idx_processing_date ON processed_demos_control(processing_date)
+-- );
 
 -- View to get processing statistics
-CREATE VIEW IF NOT EXISTS processing_stats AS (
-    SELECT 
-        source_table,
-        processing_status,
-        COUNT(*) as count,
-        MIN(processing_date) as earliest_process,
-        MAX(processing_date) as latest_process
-    FROM processed_demos_control
-    GROUP BY source_table, processing_status);
+-- CREATE VIEW IF NOT EXISTS processing_stats AS (
+--     SELECT 
+--         source_table,
+--         processing_status,
+--         COUNT(*) as count,
+--         MIN(processing_date) as earliest_process,
+--         MAX(processing_date) as latest_process
+--     FROM processed_demos_control
+--     GROUP BY source_table, processing_status);
 
 CREATE TABLE json_formatted_data (
     id_name VARCHAR(255) PRIMARY KEY,  -- Mantiene consistencia con otras tablas
     dict_data TEXT,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,  -- Útil para seguimiento
-    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+    status TEXT DEFAULT 'latest'
 );
 
 CREATE INDEX IF NOT EXISTS idx_metadata_map_status ON metadata_map(status);
 CREATE INDEX IF NOT EXISTS idx_metadata_map_createDate ON metadata_map(createDate);
 CREATE INDEX IF NOT EXISTS idx_metadata_map_modifiedDate ON metadata_map(modifiedDate);
-CREATE INDEX IF NOT EXISTS idx_demo_links_metadata_id ON demo_links(metadata_id);
+-- CREATE INDEX IF NOT EXISTS idx_demo_links_metadata_id ON demo_links(metadata_id);
 CREATE INDEX IF NOT EXISTS idx_tags_name ON tags(tag_name);
+

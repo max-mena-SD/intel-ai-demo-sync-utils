@@ -13,13 +13,13 @@ from utils.util_func import UtilFunc
 class JsonElaboration:
 
     def __init__(self) -> None:
-        self.header_query_map_ERASE = {
-            "first_table_name": "metadata_map",
-            "second_table_name": "processed_demos_control",
-            "first_key": "id_name",
-            "second_key": "demo_id",
-            "where": 'b.demo_id is NULL OR ( b.demo_id is not null AND a.status = "latest")',
-        }
+        # self.header_query_map_ERASE = {
+        #     "first_table_name": "metadata_map",
+        #     "second_table_name": "processed_demos_control",
+        #     "first_key": "id_name",
+        #     "second_key": "demo_id",
+        #     "where": 'b.demo_id is NULL OR ( b.demo_id is not null AND a.status = "latest")',
+        # }
         self.header_query_map = {
             "first_table_name": "metadata_map",
             "second_table_name": "json_formatted_data",
@@ -126,6 +126,7 @@ class JsonElaboration:
 
     def sql_to_json_builder(self):
 
+        inserted = True
         metadata = self.get_header_json(self.header_query_map)
 
         while metadata and inserted:
