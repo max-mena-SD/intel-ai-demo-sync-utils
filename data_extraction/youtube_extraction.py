@@ -1,12 +1,17 @@
 import requests
 import json
+from dotenv import load_dotenv
+import os
 
 
 class YoutubeExtraction:
+    def __init__(self) -> None:
+        load_dotenv()
+
     def youtube_connection(self, video_id):
         """"""
         try:
-            api_key = "AIzaSyDTc0PZNUDWx0JUa-v7rwCtHogyEWbzA7E"
+            api_key = os.getenv("API_KEY")
             url = f"https://www.googleapis.com/youtube/v3/videos?id={video_id}&key={api_key}&part=snippet"
             response = requests.get(url)
             data = response.json()
